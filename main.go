@@ -38,7 +38,7 @@ EXAMPLES:
 		cli.StringFlag{
 			Name:  "delimiter, d",
 			Value: "",
-			Usage: "delimiter. Default is newline character",
+			Usage: "delimiter. Default is none.",
 		},
 		cli.IntFlag{
 			Name:  "offset, o",
@@ -53,11 +53,7 @@ EXAMPLES:
 		for i, b := range arr {
 			s += fmt.Sprintf(fmt.Sprintf("%"+c.String("format"), b))
 			if i < len(arr)-1 {
-				if c.String("delimiter") == "" {
-					s += "\n"
-				} else {
-					s += c.String("delimiter")
-				}
+				s += c.String("delimiter")
 			}
 		}
 		fmt.Println(s)
